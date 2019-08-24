@@ -1,4 +1,4 @@
-# PerodicTable
+# Periodic Table
 
 Interactive Perodic Table using neelpatel05's API(https://github.com/neelpatel05/periodic-table-api) to get the elements and their data.
 
