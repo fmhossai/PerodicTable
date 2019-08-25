@@ -5,20 +5,18 @@ else{
   ready()
 }
 function ready(){
-  const Period1 = [57,58,59,60,61,62,63,64,65,66,67,68,69,70,71]
+const Period1 = [57,58,59,60,61,62,63,64,65,66,67,68,69,70,71]
 const Period2 = [89,90,91,92,93,94,95,96,97,98,99,100,101,102,103]
-let data1 = [];
 var state = {
   alkalimetals:0,
   alkalineearthmetals:0,
   halogens:0
 }
-const button1 = document.getElementById("akalim");
-const button2 = document.getElementById("alkaline");
-const button3 = document.getElementById("halo");
 const inputfield = document.getElementById("hi");
 var dict = {};
 var symbols = [];
+const bodyy = document.body
+
 
 inputfield.addEventListener("keyup",(e)=>{
   var inputf = inputfield.value.toLowerCase();
@@ -47,16 +45,6 @@ inputfield.addEventListener("keyup",(e)=>{
       x.style.visibility = "hidden";
     }
   }
-})
-
-button1.addEventListener("click",()=>{
-  Highlight(`.Group1.groups:not(#H)`,`alkalimetals`)
-});
-button2.addEventListener("click",()=>{
-  Highlight(`.Group2.groups`,`alkalineearthmetals`);
-})
-button3.addEventListener("click",()=>{
-  Highlight(`.Group17.groups`,"halogens")
 })
 function eval2(str){
   return (new Function( "return(" +str+ ");"))();
@@ -149,7 +137,6 @@ function blnk2(row,period){
 }
 
 function Highlight(clss,typee){
-  console.log(document.querySelectorAll(".Group1.groups:not(#H)"))
   if (state[typee] === 0){
     var Select = document.querySelectorAll(clss);
     for (var i of Select){
@@ -179,6 +166,27 @@ fetch("https://neelpatel05.pythonanywhere.com",)
   meow(data,Period1,".Period1.groups")
   meow(data,Period2,".Period2.groups")
 })
+bodyy.addEventListener("mouseover",(e)=>{
+  if (e.target.classList.contains("groups")){
+    e.target.style.color = "orange"
+  }
+})
+bodyy.addEventListener("mouseout", (e)=>{
+  if (e.target.classList.contains("groups")){
+    e.target.style.color = ""
+  }
+})
+bodyy.addEventListener("click", (e)=>{
+  if (e.target.classList.contains("akalim")){
+    Highlight(`.Group1.groups:not(#H)`,`alkalimetals`)
+  }
+  else if (e.target.id == "alkaline"){
+    Highlight(`.Group2.groups`,`alkalineearthmetals`);
+  }
+  else if (e.target.id == "halo"){
+    Highlight(`.Group17.groups`,"halogens");
+  }
+})
 function main(data1){
   for (var i=1; i<13;i++){
     if (i === 1) Create(`Group${i}`,"fi")
@@ -193,7 +201,6 @@ function main(data1){
     else Create(`Group${i}`,"si")
   }
   for (var i=1;i<19;i++){
-    // meow(data1,eval2(`Group${i}`),`.Group${i}`)
     meow(data1,choose(`${i}`),`.Group${i}`)
   }
   for (var i of data1){
@@ -202,6 +209,5 @@ function main(data1){
     symbols.push(m)
   }
 }
-
 }
 

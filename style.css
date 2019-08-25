@@ -7,7 +7,7 @@ button:focus {outline:0;}
 #container{
   display:grid;
   justify-content: center;
-  grid-template-columns: 100px 100px 100px
+  grid-template-columns: 100px 100px 100px 100px;
 }
 .alkalineearthmetals{
   color: #8B0000;
@@ -25,12 +25,10 @@ body > p{
   text-align: center;
   font-size: 30px;
   margin-bottom: 10px;
-
 }
 #search{
   position: absolute;
   left: 37%;
-  
 }
 input{
   border: 1px solid black;
@@ -56,6 +54,10 @@ table
 .table-1{
   margin-bottom:20px;
 }
+.groups{
+  position:relative;
+}
+
 
 
 
