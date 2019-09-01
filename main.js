@@ -5,8 +5,10 @@ else{
   ready()
 }
 function ready(){
+//elements on the bottom
 const Period1 = [57,58,59,60,61,62,63,64,65,66,67,68,69,70,71]
 const Period2 = [89,90,91,92,93,94,95,96,97,98,99,100,101,102,103]
+//state variables for buttons
 var state = {
   alkalimetals:0,
   alkalineearthmetals:0,
@@ -17,7 +19,7 @@ var dict = {};
 var symbols = [];
 const bodyy = document.body
 
-
+//search bar function
 inputfield.addEventListener("keyup",(e)=>{
   var inputf = inputfield.value.toLowerCase();
   for (var i of Object.keys(dict)){
@@ -46,9 +48,18 @@ inputfield.addEventListener("keyup",(e)=>{
     }
   }
 })
-function eval2(str){
-  return (new Function( "return(" +str+ ");"))();
+//function to convert words to uppercase so you can compare, used for search function
+function upper(string){
+  if (string.length == 1){
+    var z = string.charAt(0).toUpperCase()
+  }
+  else{
+    var z = string.charAt(0).toUpperCase() + string.slice(1)
+  }
+  return z
 }
+
+//functions to create the periodic table programmatically
 function choose(str){
   switch(str){
     case "1" : return [1,3,11,19,37,55,87];
@@ -71,16 +82,7 @@ function choose(str){
     case "18" : return [2,10,18,36,54,86,118];
   }
 }
-function upper(string){
-  if (string.length == 1){
-    var z = string.charAt(0).toUpperCase()
-  }
-  else{
-    var z = string.charAt(0).toUpperCase() + string.slice(1)
-  }
-  return z
 
-}
 function Create(cls, idd){
   var ccc = document.querySelectorAll(`#${idd}~tr`);
   for (var x of ccc){
@@ -90,6 +92,36 @@ function Create(cls, idd){
   }
 }
 
+//main function which uses the functions
+function main(data1){
+  //first create all the tr and td elements
+  for (var i=1; i<13;i++){
+    if (i === 1) Create(`Group${i}`,"fi")
+    else if (i === 2) Create(`Group${i}`,"si");
+    else Create(`Group${i}`,"t")
+  }
+  //create the blank tds which are in the middle of the table
+  blnk(16,"si");
+  blnk(10,"tt");
+  blnk(10,"t");
+  //create the rest of the td elements
+  for(var i=13;i<19;i++){
+    if (i == 18) Create(`Group${i}`,"fi")
+    else Create(`Group${i}`,"si")
+  }
+  //insert periodic data in all tds
+  for (var i=1;i<19;i++){
+    meow(data1,choose(`${i}`),`.Group${i}`)
+  }
+  //create a object of atomic symbols and names;used for search function
+  for (var i of data1){
+    dict[i.name] = i.symbol
+    var m = i.symbol.toLowerCase()
+    symbols.push(m)
+  }
+}
+
+//inserting perodic table data elements here
 function meow(data,Group,clss){
 let x = 0;
  for (var i in data){
@@ -105,6 +137,7 @@ let x = 0;
  }
 }
 
+//creating blank tds
 function blnk(spaces,row){
     let g = document.getElementById(row);
     for (i=0;i<spaces;i++){
@@ -120,6 +153,7 @@ function blnk(spaces,row){
     }
 }
 
+//creating blank tds at the bottom of the periodic table
 function blnk2(row,period){
   let g = document.getElementById(row)
   for (i=1;i<18;i++){
@@ -136,6 +170,44 @@ function blnk2(row,period){
   }
 }
 
+//used to fetch data from api and call some other functions to finish creating the periodic table
+async function hi(){
+  const response = await fetch("https://neelpatel05.pythonanywhere.com")
+  const data = await response.json()
+  main(data)
+  let zzz = document.querySelectorAll(".Group3.groups")
+  zzz[2].textContent = '57-71'
+  zzz[3].textContent = '89-103'
+  blnk2("fou","Period1")
+  blnk2("fif","Period2")
+  meow(data,Period1,".Period1.groups")
+  meow(data,Period2,".Period2.groups")
+}
+//selections for perodic table
+bodyy.addEventListener("mouseover",(e)=>{
+  if (e.target.classList.contains("groups")){
+    e.target.style.color = "orange"
+  }
+})
+bodyy.addEventListener("mouseout", (e)=>{
+  if (e.target.classList.contains("groups")){
+    e.target.style.color = ""
+  }
+})
+
+//buttons for highlighting
+bodyy.addEventListener("click", (e)=>{
+  if (e.target.classList.contains("akalim")){
+    Highlight(`.Group1.groups:not(#H)`,`alkalimetals`)
+  }
+  else if (e.target.id == "alkaline"){
+    Highlight(`.Group2.groups`,`alkalineearthmetals`);
+  }
+  else if (e.target.id == "halo"){
+    Highlight(`.Group17.groups`,"halogens");
+  }
+})
+//used for buttons highlighing
 function Highlight(clss,typee){
   if (state[typee] === 0){
     var Select = document.querySelectorAll(clss);
@@ -152,62 +224,5 @@ function Highlight(clss,typee){
   state[typee] = 0;
 }
 }
-
-fetch("https://neelpatel05.pythonanywhere.com",)
-.then((resp)=>resp.json())
-.then(function(data){
-  // data1 = data;
-  main(data)
-  let zzz = document.querySelectorAll(".Group3.groups")
-  zzz[2].textContent = '57-71'
-  zzz[3].textContent = '89-103'
-  blnk2("fou","Period1")
-  blnk2("fif","Period2")
-  meow(data,Period1,".Period1.groups")
-  meow(data,Period2,".Period2.groups")
-})
-bodyy.addEventListener("mouseover",(e)=>{
-  if (e.target.classList.contains("groups")){
-    e.target.style.color = "orange"
-  }
-})
-bodyy.addEventListener("mouseout", (e)=>{
-  if (e.target.classList.contains("groups")){
-    e.target.style.color = ""
-  }
-})
-bodyy.addEventListener("click", (e)=>{
-  if (e.target.classList.contains("akalim")){
-    Highlight(`.Group1.groups:not(#H)`,`alkalimetals`)
-  }
-  else if (e.target.id == "alkaline"){
-    Highlight(`.Group2.groups`,`alkalineearthmetals`);
-  }
-  else if (e.target.id == "halo"){
-    Highlight(`.Group17.groups`,"halogens");
-  }
-})
-function main(data1){
-  for (var i=1; i<13;i++){
-    if (i === 1) Create(`Group${i}`,"fi")
-    else if (i === 2) Create(`Group${i}`,"si");
-    else Create(`Group${i}`,"t")
-  }
-  blnk(16,"si");
-  blnk(10,"tt");
-  blnk(10,"t");
-  for(var i=13;i<19;i++){
-    if (i == 18) Create(`Group${i}`,"fi")
-    else Create(`Group${i}`,"si")
-  }
-  for (var i=1;i<19;i++){
-    meow(data1,choose(`${i}`),`.Group${i}`)
-  }
-  for (var i of data1){
-    dict[i.name] = i.symbol
-    var m = i.symbol.toLowerCase()
-    symbols.push(m)
-  }
+hi();
 }
-}
-
