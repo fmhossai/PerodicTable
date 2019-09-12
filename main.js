@@ -18,10 +18,11 @@ const inputfield = document.getElementById("hi");
 var dict = {};
 var symbols = [];
 const bodyy = document.body
-
+console.log(inputfield.value === "")
 //search bar function
 inputfield.addEventListener("keyup",(e)=>{
   var inputf = inputfield.value.toLowerCase();
+  var zzz = document.querySelectorAll(".Group3.groups")
   for (var i of Object.keys(dict)){
     var y = i.toLowerCase()
     if (symbols.includes(inputf)){
@@ -35,6 +36,8 @@ inputfield.addEventListener("keyup",(e)=>{
           var zx = upper(j)
           var x = document.getElementById(zx)
           x.style.visibility = "hidden"
+          zzz[2].style.visibility = "hidden"
+          zzz[3].style.visibility = "hidden"
         }
       }
     }
@@ -45,7 +48,13 @@ inputfield.addEventListener("keyup",(e)=>{
     else{
       var x = document.getElementById(`${dict[i]}`)
       x.style.visibility = "hidden";
+      zzz[2].style.visibility = "hidden"
+      zzz[3].style.visibility = "hidden"
     }
+  }
+  if (inputfield.value === "") {
+    zzz[2].style.visibility = "visible";
+    zzz[3].style.visibility = "visible";
   }
 })
 //function to convert words to uppercase so you can compare, used for search function
