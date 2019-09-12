@@ -7,7 +7,7 @@ button:focus {outline:0;}
 #container{
   display:grid;
   justify-content: center;
-  grid-template-columns: 100px 100px 100px 100px;
+  grid-template-columns: 100px 100px 100px 100px 100px;
 }
 .alkalineearthmetals{
   color: #8B0000;
@@ -17,6 +17,12 @@ button:focus {outline:0;}
 }
 .halogens{
   color:#90EE90;
+}
+.lant{
+  color:darkblue;
+}
+.actin{
+  color:pink;
 }
 .blank{
   border:1px white; 
