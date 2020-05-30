@@ -210,7 +210,7 @@ function ready(){
   //buttons for highlighting
   document.body.addEventListener("click", (e)=>{
     //Alkali Metals highlight
-    if (e.target.classList.contains("akalim")){
+    if (e.target.classList.contains("alkali-metals")){
       Highlight(`.Group1.groups:not(#H)`,`alkalimetals`)
     }
     //Alkaline Metals highlight
@@ -218,13 +218,13 @@ function ready(){
       Highlight(`.Group2.groups`,`alkalineearthmetals`);
     }
     //Halogens Highlight
-    else if (e.target.id == "halo"){
+    else if (e.target.id == "halogens"){
       Highlight(`.Group17.groups`,"halogens");
     }
-    else if (e.target.id == "lan"){
+    else if (e.target.id == "lanthanides"){
       Highlight(`.Period1.groups`, "lant")
     }
-    else if (e.target.id == "act"){
+    else if (e.target.id == "actinides"){
       Highlight(`.Period2.groups`, "actin")
     }
   })
