@@ -1,6 +1,6 @@
 # Periodic Table
 
-Interactive Perodic Table using neelpatel05's API(https://github.com/neelpatel05/periodic-table-api) to get the elements and their data.
+Interactive Perodic Table using Bowserinator's Periodic Table JSON(https://github.com/Bowserinator/Periodic-Table-JSON) to get the elements and their data.
 
 Hosted on Netfliy here(https://interactive-periodic-table.netlify.com)
 
