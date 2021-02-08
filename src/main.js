@@ -17,7 +17,7 @@ async function ready() {
     function visible(): shows the element on the screen or not.
   }
   */
-  //main function which uses the functions
+  //main function which uses the functions 
   function main(data) {
 
     createTable(data);
@@ -76,6 +76,6 @@ async function ready() {
   }
 
   //call the fetch
-  const data = await fetchData("PeriodicTableJSON.json");
+  const data = await fetchData("../PeriodicTableJSON.json");
   main(data);
 }

@@ -37,7 +37,7 @@ export function createTable(data){
     if((currentX - prevX) > 1){
       for(let i= 1; i<(currentX - prevX); i++){
         let blankElementNode = document.createElement('td');
-        blankElementNode.setAttribute('class', `Column${i + 1}`)
+        blankElementNode.setAttribute('class', `Column${i + 1} blank`)
         insertElementNode(blankElementNode, currentRowElementNode)
       }
     }

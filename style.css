@@ -59,10 +59,12 @@ button{
   margin:10px;
   border-radius: 5px;
 }
-
-button:hover{
-  cursor: pointer;
+body td:not(.blank):hover{
+  color:#8B0000
 }
+
+
+
 
 
 

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "start": "reload -b"
+    "start": "live-server"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "url": "https://github.com/fmhossai/PerodicTable/issues"
   },
   "homepage": "https://github.com/fmhossai/PerodicTable#readme",
-  "dependencies": {
-    "reload": "^3.1.1"
+  "devDependencies": {
+    "live-server": "^1.2.1"
   }
 }
