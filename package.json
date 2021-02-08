@@ -1,0 +1,23 @@
+{
+  "name": "perodictable",
+  "description": "Interactive Perodic Table using Bowserinator's Periodic Table JSON(https://github.com/Bowserinator/Periodic-Table-JSON) to get the elements and their data.",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "reload -b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fmhossai/PerodicTable.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fmhossai/PerodicTable/issues"
+  },
+  "homepage": "https://github.com/fmhossai/PerodicTable#readme",
+  "type": "module",
+  "devDependencies": {
+    "watch-http-server": "^0.7.6"
+  }
+}
