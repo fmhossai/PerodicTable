@@ -15,9 +15,5 @@
   "bugs": {
     "url": "https://github.com/fmhossai/PerodicTable/issues"
   },
-  "homepage": "https://github.com/fmhossai/PerodicTable#readme",
-  "type": "module",
-  "devDependencies": {
-    "watch-http-server": "^0.7.6"
-  }
+  "homepage": "https://github.com/fmhossai/PerodicTable#readme"
 }
