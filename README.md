@@ -15,7 +15,9 @@ Quickly search back and forth between highlighting and non-highlighting elements
 
 2. change into project director
 
-3. type npm start to host a local web server
+3. npm install
+
+4. type npm start to host a local web server
 
 
 
