@@ -21,9 +21,11 @@
     else if (e.target.id == "halogens"){
       Highlight(`.Column17`,"halogens");
     }
+    //lanthanides highlight
     else if (e.target.id == "lanthanides"){
       Highlight(`#row9 td`, "lant")
     }
+    //actinides highlight
     else if (e.target.id == "actinides"){
       Highlight(`#row10 td`, "actin")
     }
