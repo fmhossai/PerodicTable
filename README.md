@@ -9,15 +9,20 @@ A search function, which helps you locate a certain element using thier symbol o
 Buttons that highlight search group elements, like Alkaline Earth Metals, Alkali Metals, Noble Gases and many more.
 Quickly search back and forth between highlighting and non-highlighting elements, so you would know what a basic Perodic Table would look like without hightlighting, useful for studying.
 
-# How to setup
+# How to setup locally
 
 1. Clone this Git repo
 
-2. change into project director
+2. change into project directory using Terminal
 
-3. npm install
-
-4. type npm start to host a local web server
+3. type in the following command into Terminal to install dependencies
+```bash
+npm install
+```
+4. type in the following command to make a local web server
+```bash
+npm start
+```
 
 
 
