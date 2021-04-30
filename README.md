@@ -2,7 +2,7 @@
 
 Interactive Perodic Table using Bowserinator's Periodic Table JSON(https://github.com/Bowserinator/Periodic-Table-JSON) to get the elements and their data.
 
-Hosted on Netfliy here(https://interactive-periodic-table.netlify.com)
+Hosted on Netfliy here(https://interactive-periodic-table.netlify.app)
 
 # Interactivity includes 
 A search function, which helps you locate a certain element using thier symbol or name.
